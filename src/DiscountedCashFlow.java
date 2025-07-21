@@ -1,9 +1,24 @@
+import java.util.HashMap;
+
 public class DiscountedCashFlow {
 
-    // remove later
-    public static void test() {
-        System.out.println("testDCF");
-    }
+    // variables ----
+    int numOfYearsData = 0;
+
+    HashMap<Integer, Integer> yearData = new HashMap<>();
+    // (year/data) pair
+
+    HashMap<Integer, Double> YoYGrowth = new HashMap<>();
+    // (year, growth rate) pair
+
+    double averageGrowthRateYoY = 0.0;
+    // avg of all growth rate
+
+    double conservativeGrowth = 0.0;
+    // conservative growth rate
+
+
+
 
 }
     // -------------------------------------------------------------------------------------------------------------------
