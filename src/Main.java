@@ -1,13 +1,17 @@
-import java.time.Year;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        boolean isRunning = true;
 
-        DividendDiscountModel.test();
-        EarningsMultiplier.test();
-        WeightedAverageCostOfCapital.test();
+        while (isRunning) {
+            System.out.println();
+        }
 
-        System.out.println(Year.now()); // test
+
+
+
 
     }
 }
