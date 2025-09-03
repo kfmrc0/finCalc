@@ -1,7 +1,7 @@
 public class EarningsMultiplier {
 
     public static void test() {
-        System.out.println("testPE");
+        System.out.println("3. testPE received");
     }
 
 }
