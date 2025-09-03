@@ -3,7 +3,7 @@ import java.util.HashMap;
 public class DiscountedCashFlow {
 
     public static void test() {
-        System.out.println("1. dcf received");
+        System.out.println("1. dcf received"); // temporary
     }
 
     // variables ----
