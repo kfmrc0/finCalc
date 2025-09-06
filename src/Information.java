@@ -14,7 +14,19 @@ public class Information {
                         their own financial decisions.
                     
                 2. --- Discounted Cash Flow
-                    The discounted cash flow model...
+                    This section initially asks for ticker symbol and current stock price. The user
+                    should then input a number of years of data (free cash flows). Then we calculate
+                    the average YoY growth rate. Then we show this number and prompt the user for
+                    a more conservative growth rate BASED on the calculated findings. Then we project
+                    future free cash flows using the conservative YoY growth rate we got from user.
+                    Calculates 10 years of this. Then we use those 10 years alongside a discount rate
+                    or WACC and a perpetual growth rate (which is typically 2.5%, matching growth of
+                    economy), to calculate the terminal value. Then we want to find the present value
+                    for future free cash flows. Get the summation of all present values for ffcf's and
+                    user will input cash and cash equivalents and total debt of company. (go on yahoo
+                    finance). We also want the user to give the number of shares outstanding. Now, to
+                    find the dcf price per share, we divide the equity value by the number of shares
+                    outstanding.
                     
                 3. --- Weight Average Cost of Capital
                     weighted
