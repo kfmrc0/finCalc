@@ -35,7 +35,7 @@ public class Information {
                     pe ratio'
                 
                 5. --- Dividend Discount Model
-                    ddm
+                    ddm test testtest
                 """);
 
     }
