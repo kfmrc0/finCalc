@@ -26,7 +26,7 @@ public class Information {
                     user will input cash and cash equivalents and total debt of company. (go on yahoo
                     finance). We also want the user to give the number of shares outstanding. Now, to
                     find the dcf price per share, we divide the equity value by the number of shares
-                    outstanding.
+                    outstanding. 
                     
                 3. --- Weight Average Cost of Capital
                     weighted
