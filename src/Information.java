@@ -29,7 +29,7 @@ public class Information {
                     outstanding. 
                     
                 3. --- Weight Average Cost of Capital
-                    weighted
+                    weighted / discount rate
                     
                 4. --- Earnings Multiplier
                     pe ratio'
