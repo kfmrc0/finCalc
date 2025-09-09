@@ -32,7 +32,8 @@ public class Information {
                     weighted / discount rate
                     
                 4. --- Earnings Multiplier
-                    pe ratio'
+                    price to earnings multiple, stock price and earnings per share. stock price / eps
+                    eps * pe = intrinsic value
                 
                 5. --- Dividend Discount Model
                     ddm test testtest
