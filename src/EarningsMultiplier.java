@@ -1,25 +1,32 @@
 public class EarningsMultiplier {
 
     public static String formatPERatio (String ticker, double stockPrice, double eps) {
-        StringBuilder sb = new StringBuilder();
-
-        sb.append("\n--- P/E Ratio Calculation ---\n");
-        sb.append(String.format("Ticker: %s%n", ticker));
-        sb.append(String.format("Stock Price: $%.2f%n", stockPrice));
-        sb.append(String.format("EPS: %.2f%n", eps));
-
         double peRatio = stockPrice / eps;
-        sb.append(String.format("P/E Ratio: %.2f%n", peRatio));
-        sb.append("-----------------------------");
 
-        return sb.toString();
+        return String.format("""
+                \n--- P/E Ratio Calculation ---
+                Ticker: %s
+                Stock Price: $%.2f
+                EPS: %.2f
+                P/E Ratio: %.2f
+                -----------------------------
+                """, ticker, stockPrice, eps, peRatio);
     }
 
     public static String formatIntrinsicValue (String ticker, double stockPrice, double eps, double peRatio) {
-        StringBuilder sb = new StringBuilder();
+        double intrinsicValue = eps * peRatio;
+        double percentChange = ((intrinsicValue - stockPrice) / stockPrice) * 100;
 
-
-        return ticker;
+        return String.format("""
+                \n--- Intrinsic Value Calculation ---
+                Ticker: %s
+                Stock Price: $%.2f
+                EPS: %.2f
+                Desired P/E Ratio: %.2f
+                Intrinsic Value: $%.2f
+                Percentage Change: %+.2f%%
+                -----------------------------
+                """, ticker, stockPrice, eps, peRatio, intrinsicValue, percentChange);
     }
 
 }

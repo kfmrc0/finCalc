@@ -1,8 +1,5 @@
-import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
         boolean isRunning = true;
 
         while (isRunning) {
@@ -16,111 +13,81 @@ public class Main {
             System.out.println("6. Exit");
             System.out.println("--------------------------------");
 
-            // User Prompt
-            System.out.print("\nPlease choose an option (1-6): ");
-            try {
-                int choice = Integer.parseInt(scanner.nextLine());
-                switch (choice) {
-                    case 1 -> {
-                        DiscountedCashFlow.test();
-                        isRunning = false; // cases 1 - 5 temporarily have isRunning to false
-                    }
-                    case 2 -> {
-                        WeightedAverageCostOfCapital.test();
-                        isRunning = false;
-                    }
-                    case 3 -> {
-                        boolean stayIn = true;
+            int choice = InputHelper.getInt("\nPlease choose an option (1-6): ");
+
+            switch (choice) {
+                case 1 -> {
+                    DiscountedCashFlow.test();
+                    isRunning = false; // temporary until implemented fully
+                }
+                case 2 -> {
+                    WeightedAverageCostOfCapital.test();
+                    isRunning = false;
+                }
+                case 3 -> {
+                    boolean stayIn = true;
+
+                    while (stayIn) {
+                        System.out.println("\n--- Earnings Multiplier Model ---");
+                        System.out.println("1. Calculate P/E Ratio");
+                        System.out.println("2. Calculate Intrinsic Value");
+                        System.out.println("---------------------------------");
+
+                        int subChoice = InputHelper.getInt("Choose an option (1-2): ");
                         String output = "";
 
-                        while (stayIn) {
-                            System.out.println("\n--- Earnings Multiplier Model ---");
-                            System.out.println("1. Calculate P/E Ratio");
-                            System.out.println("2. Calculate Intrinsic Value");
-                            System.out.println("---------------------------------");
-                            System.out.print("Choose an option (1-2): ");
-
-                            try {
-                                int subChoice = Integer.parseInt(scanner.nextLine().trim());
-
-                                switch (subChoice) {
-                                    case 1 -> {
-                                        System.out.print("Enter the ticker symbol: ");
-                                        String ticker = scanner.nextLine().trim();
-
-                                        System.out.print("Enter the current stock price: ");
-                                        double stockPrice = Double.parseDouble(scanner.nextLine().trim());
-
-                                        System.out.print("Enter the earnings per share (EPS): ");
-                                        double eps = Double.parseDouble(scanner.nextLine().trim());
-
-                                        output = EarningsMultiplier.formatPERatio(ticker, stockPrice, eps);
-                                    }
-                                    case 2 -> {
-                                        System.out.print("Enter the ticker symbol: ");
-                                        String ticker = scanner.nextLine().trim();
-
-                                        System.out.print("Enter the current stock price: ");
-                                        double stockPrice = Double.parseDouble(scanner.nextLine().trim());
-
-                                        System.out.print("Enter the earnings per share (EPS): ");
-                                        double eps = Double.parseDouble(scanner.nextLine().trim());
-
-                                        System.out.print("Enter your desired P/E Ratio: ");
-                                        double peRatio = Double.parseDouble(scanner.nextLine().trim());
-
-                                        output = EarningsMultiplier.formatIntrinsicValue(ticker, stockPrice, eps, peRatio);
-                                    }
-                                    default -> {
-                                        System.out.println("Invalid option. Please enter 1 or 2.");
-                                    }
-                                }
+                        switch (subChoice) {
+                            case 1 -> {
+                                String ticker = InputHelper.getTickerSymbol("Enter the ticker symbol: ");
+                                double stockPrice = InputHelper.getDouble("Enter the current stock price: ");
+                                double eps = InputHelper.getDouble("Enter the earnings per share (EPS): ");
+                                output = EarningsMultiplier.formatPERatio(ticker, stockPrice, eps);
                             }
-                            catch (Exception e) {
-                                System.out.println("Invalid input! Please enter a number (1-2).");
+                            case 2 -> {
+                                String ticker = InputHelper.getTickerSymbol("Enter the ticker symbol: ");
+                                double stockPrice = InputHelper.getDouble("Enter the current stock price: ");
+                                double eps = InputHelper.getDouble("Enter the earnings per share (EPS): ");
+                                double peRatio = InputHelper.getDouble("Enter your desired P/E Ratio: ");
+                                output = EarningsMultiplier.formatIntrinsicValue(ticker, stockPrice, eps, peRatio);
+                            }
+                            default -> {
+                                System.out.println("Invalid option. Please enter 1 or 2.");
                                 continue;
                             }
-                            while (true) {
-                                System.out.println(output);
-                                System.out.print("Return to main menu? (enter 'yes' to return): ");
-                                String response = scanner.nextLine().trim().toLowerCase();
+                        }
 
-                                if (response.equals("yes")) {
-                                    stayIn = false;
-                                    break;
-                                }
+                        System.out.println(output);
+
+                        while (true) {
+                            String response = InputHelper.getString("Return to main menu? (enter 'yes' to return): ").toLowerCase();
+                            if (response.equals("yes")) {
+                                stayIn = false;
+                                break;
                             }
+                            System.out.println("Invalid response. Please type 'yes' to return.");
                         }
                     }
-                    case 4 -> {
-                        DividendDiscountModel.test();
-                        isRunning = false;
-                    }
-                    case 5 -> {
-                        Information.test();
-                        isRunning = false;
-                    }
-                    case 6 -> {
-                        System.out.println("Now exiting the Java program...");
-                        isRunning = false;
-                    }
-                    default -> {
-                        System.out.println("""
-                                \n!!!--------------------------------------!!!
-                                Invalid option. Please enter a number (1-6).
-                                !!!--------------------------------------!!!
-                                """);
-                    }
+                }
+                case 4 -> {
+                    DividendDiscountModel.test();
+                    isRunning = false;
+                }
+                case 5 -> {
+                    Information.test();
+                    isRunning = false;
+                }
+                case 6 -> {
+                    System.out.println("Now exiting the Java program...");
+                    isRunning = false;
+                }
+                default -> {
+                    System.out.println("""
+                            \n!!!--------------------------------------!!!
+                            Invalid option. Please enter a number (1-6).
+                            !!!--------------------------------------!!!
+                            """);
                 }
             }
-            catch (Exception e) {
-                System.out.println("""
-                        \n!!!--------------------------------------!!!
-                        Invalid input!. Please enter a number (1-6).
-                        !!!--------------------------------------!!!
-                        """);
-            }
         }
-        scanner.close();
     }
 }
