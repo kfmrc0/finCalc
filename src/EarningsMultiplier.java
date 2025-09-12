@@ -25,7 +25,7 @@ public class EarningsMultiplier {
                 Desired P/E Ratio: %.2f
                 Intrinsic Value: $%.2f
                 Percentage Change: %+.2f%%
-                -----------------------------
+                -----------------------------------
                 """, ticker, stockPrice, eps, peRatio, intrinsicValue, percentChange);
     }
 

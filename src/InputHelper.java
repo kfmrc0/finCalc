@@ -12,7 +12,7 @@ public class InputHelper {
                 return Integer.parseInt(input);
             }
             catch (NumberFormatException e) {
-                System.out.println("Invalid input. Please enter a valid integer.");
+                System.out.println("\nInvalid input. Please enter a valid integer.");
             }
         }
     }
@@ -25,7 +25,7 @@ public class InputHelper {
                 return Double.parseDouble(input);
             }
             catch (NumberFormatException e) {
-                System.out.println("Invalid input. Please enter a valid number.");
+                System.out.println("\nInvalid input. Please enter a valid number.");
             }
         }
     }
@@ -37,7 +37,7 @@ public class InputHelper {
             if (!input.isEmpty()) {
                 return input;
             }
-            System.out.println("Input cannot be empty.");
+            System.out.println("\nInput cannot be empty.");
         }
     }
 
@@ -47,12 +47,12 @@ public class InputHelper {
             String input = scanner.nextLine().trim();
 
             if (input.isEmpty()) {
-                System.out.println("Ticker symbol cannot be empty.");
+                System.out.println("\nTicker symbol cannot be empty.");
                 continue;
             }
 
             if (input.matches(".*\\d.*")) {
-                System.out.println("Ticker symbol cannot contain numbers.");
+                System.out.println("\nTicker symbol cannot contain numbers.");
                 continue;
             }
 

@@ -1,5 +1,8 @@
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
         boolean isRunning = true;
 
         while (isRunning) {
@@ -13,7 +16,7 @@ public class Main {
             System.out.println("6. Exit");
             System.out.println("--------------------------------");
 
-            int choice = InputHelper.getInt("\nPlease choose an option (1-6): ");
+            int choice = InputHelper.getInt("Please choose an option (1-6): ");
 
             switch (choice) {
                 case 1 -> {
@@ -28,7 +31,7 @@ public class Main {
                     boolean stayIn = true;
 
                     while (stayIn) {
-                        System.out.println("\n--- Earnings Multiplier Model ---");
+                        System.out.println("\n\n--- Earnings Multiplier Model ---");
                         System.out.println("1. Calculate P/E Ratio");
                         System.out.println("2. Calculate Intrinsic Value");
                         System.out.println("---------------------------------");
@@ -38,12 +41,14 @@ public class Main {
 
                         switch (subChoice) {
                             case 1 -> {
+                                System.out.println();
                                 String ticker = InputHelper.getTickerSymbol("Enter the ticker symbol: ");
                                 double stockPrice = InputHelper.getDouble("Enter the current stock price: ");
                                 double eps = InputHelper.getDouble("Enter the earnings per share (EPS): ");
                                 output = EarningsMultiplier.formatPERatio(ticker, stockPrice, eps);
                             }
                             case 2 -> {
+                                System.out.println();
                                 String ticker = InputHelper.getTickerSymbol("Enter the ticker symbol: ");
                                 double stockPrice = InputHelper.getDouble("Enter the current stock price: ");
                                 double eps = InputHelper.getDouble("Enter the earnings per share (EPS): ");
@@ -59,12 +64,13 @@ public class Main {
                         System.out.println(output);
 
                         while (true) {
-                            String response = InputHelper.getString("Return to main menu? (enter 'yes' to return): ").toLowerCase();
+                            System.out.print("Return to main menu? (enter 'yes' to return): ");
+                            String response = scanner.nextLine().trim().toLowerCase();
                             if (response.equals("yes")) {
                                 stayIn = false;
                                 break;
                             }
-                            System.out.println("Invalid response. Please type 'yes' to return.");
+                            System.out.println(output);
                         }
                     }
                 }
@@ -89,5 +95,6 @@ public class Main {
                 }
             }
         }
+        scanner.close();
     }
 }
