@@ -34,7 +34,7 @@ public class Information {
                 4. --- Earnings Multiplier
                     price to earnings multiple, stock price and earnings per share. stock price / eps
                     eps * pe = intrinsic value
-                    yahoo finance for numbers
+                    yahoo finance for numbers, balance sheet
                 
                 5. --- Dividend Discount Model
                     ddm test testtest
