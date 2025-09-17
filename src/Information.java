@@ -38,6 +38,7 @@ public class Information {
                 
                 5. --- Dividend Discount Model
                     ddm test testtest tv val
+                    https://www.wallstreetprep.com/knowledge/dividend-discount-model/
                 """);
 
     }
