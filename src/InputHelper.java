@@ -51,6 +51,11 @@ public class InputHelper {
                 continue;
             }
 
+            if (input.length() >= 7) {
+                System.out.println("\nTicker symbol is too long.");
+                continue;
+            }
+
             if (input.matches(".*\\d.*")) {
                 System.out.println("\nTicker symbol cannot contain numbers.");
                 continue;
