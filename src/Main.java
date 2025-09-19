@@ -24,8 +24,36 @@ public class Main {
                     isRunning = false; // temporary until implemented fully
                 }
                 case 2 -> {
-                    WeightedAverageCostOfCapital.test();
-                    isRunning = false;
+                    boolean stayIn = true;
+
+                    while (stayIn) {
+                        System.out.println("\n\n--- Weighted Average Cost of Capital Model ---");
+                        String output = "";
+                        String ticker = InputHelper.getTickerSymbol("Enter the ticker symbol: ");
+                        double stockPrice = InputHelper.getDouble("Enter the current stock price: ");
+                        System.out.println("----------------------------------------------");
+
+                        System.out.println("\n--- Cost of Debt ---");
+                        double interestExpense = InputHelper.getDouble("Enter the interest expense of " + ticker + ": ");
+                        double totalDebt = InputHelper.getDouble("Enter the total debt of " + ticker + ": ");
+                        // cost of debt = interest expense / total debt
+                        double incomeTaxExpense = InputHelper.getDouble("Enter the tax provision of " + ticker + ": ");
+                        double incomeBeforeTax = InputHelper.getDouble("Enter the pretax income of " + ticker + ": ");
+                        // effective tax rate = income tax expense / income before tax
+                        // cost of debt after tax = cost of debt * (1 - effective tax rate)
+                        System.out.println("--------------------");
+
+                        System.out.println("\n--- Cost of Equity ---");
+                        double beta = InputHelper.getDouble("Enter the beta of " + ticker + ": ");
+                        double marketReturn = InputHelper.getDouble("Enter the expected return on the market (7% - 10%): ");
+                        double riskFreeRate = InputHelper.getDouble("Enter the U.S. Treasury Yield on 10 Years (Risk Free Rate): ");
+                        // cost of equity = (risk free rate) + (beta) * (market return - risk free rate)
+                        System.out.println("----------------------");
+
+                        System.out.println("\n--- Weight of Debt and Equity ---");
+
+                        System.out.println("-------------------------------");
+                    }
                 }
                 case 3 -> {
                     boolean stayIn = true;
@@ -44,15 +72,15 @@ public class Main {
                                 System.out.println();
                                 String ticker = InputHelper.getTickerSymbol("Enter the ticker symbol: ");
                                 double stockPrice = InputHelper.getDouble("Enter the current stock price: ");
-                                double eps = InputHelper.getDouble("Enter the earnings per share (EPS): ");
+                                double eps = InputHelper.getDouble("Enter the earnings per share (EPS) of " + ticker + ": ");
                                 output = EarningsMultiplier.formatPERatio(ticker, stockPrice, eps);
                             }
                             case 2 -> {
                                 System.out.println();
                                 String ticker = InputHelper.getTickerSymbol("Enter the ticker symbol: ");
                                 double stockPrice = InputHelper.getDouble("Enter the current stock price: ");
-                                double eps = InputHelper.getDouble("Enter the earnings per share (EPS): ");
-                                double peRatio = InputHelper.getDouble("Enter your desired P/E Ratio: ");
+                                double eps = InputHelper.getDouble("Enter the earnings per share (EPS) of " + ticker + ": ");
+                                double peRatio = InputHelper.getDouble("Enter your desired P/E Ratio of " + ticker + ": ");
                                 output = EarningsMultiplier.formatIntrinsicValue(ticker, stockPrice, eps, peRatio);
                             }
                             default -> {

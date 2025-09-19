@@ -51,8 +51,8 @@ public class InputHelper {
                 continue;
             }
 
-            if (input.length() >= 7) {
-                System.out.println("\nTicker symbol is too long.");
+            if (input.length() >= 6) {
+                System.out.println("\nInput is too long.");
                 continue;
             }
 
