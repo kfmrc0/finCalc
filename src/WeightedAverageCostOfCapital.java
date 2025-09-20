@@ -1,18 +1,25 @@
 public class WeightedAverageCostOfCapital {
 
-    public static String formatWACC (String ticker, double stockPrice, double interestExpense, double totalDebt, double incomeTaxExpense, double incomeBeforeTax,
-                                     double beta, double marketReturn, double riskFreeRate) { // continue later
+    public static String formatWACC (String ticker, double stockPrice, double marketCap, double interestExpense, double totalDebt, double incomeTaxExpense,
+                                     double incomeBeforeTax, double beta, double marketReturn, double riskFreeRate) {
+
         double costOfDebt = interestExpense / totalDebt;
         double effectiveTaxRate = incomeTaxExpense / incomeBeforeTax;
         double costOfDebtAfterTax = costOfDebt * (1 - effectiveTaxRate);
 
         double costOfEquity = riskFreeRate + beta * (marketReturn - riskFreeRate);
 
+        double DEtotal = totalDebt + marketCap;
+        double DEtotalDebt = totalDebt / DEtotal;
+        double DEmarketCap = marketCap / DEtotal;
+        double WACC = (costOfDebt * DEtotalDebt) + (costOfEquity * DEmarketCap);
+
+
         return String.format("""
                 \n--- WACC Calculation ---
                 Ticker: %s
-                Stock Price: $%.2f
+                WACC: %.2f%%
                 -----------------------------
-                """, ticker, stockPrice);
+                """, ticker, WACC * 100);
     }
 }

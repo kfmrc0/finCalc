@@ -25,12 +25,13 @@ public class Main {
                 }
                 case 2 -> {
                     boolean stayIn = true;
+                    String output = "";
 
                     while (stayIn) {
                         System.out.println("\n\n--- Weighted Average Cost of Capital Model ---");
-                        String output = "";
                         String ticker = InputHelper.getTickerSymbol("Enter the ticker symbol: ");
                         double stockPrice = InputHelper.getDouble("Enter the current stock price: ");
+                        double marketCap = InputHelper.getDouble("Enter the market cap of " + ticker + ": ");
                         System.out.println("----------------------------------------------");
 
                         System.out.println("\n--- Cost of Debt ---");
@@ -50,9 +51,20 @@ public class Main {
                         // cost of equity = (risk free rate) + (beta) * (market return - risk free rate)
                         System.out.println("----------------------");
 
-                        System.out.println("\n--- Weight of Debt and Equity ---");
+                        output = WeightedAverageCostOfCapital.formatWACC(ticker, stockPrice, marketCap, interestExpense, totalDebt, incomeTaxExpense,
+                                incomeBeforeTax, beta, marketReturn, riskFreeRate);
 
-                        System.out.println("-------------------------------");
+                        System.out.println(output);
+
+                        while (true) {
+                            System.out.print("Return to main menu? (enter 'yes' to return): ");
+                            String response = scanner.nextLine().trim().toLowerCase();
+                            if (response.equals("yes")) {
+                                stayIn = false;
+                                break;
+                            }
+                            System.out.println(output);
+                        }
                     }
                 }
                 case 3 -> {
