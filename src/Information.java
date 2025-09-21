@@ -29,7 +29,7 @@ public class Information {
                     outstanding. 
                     
                 3. --- Weight Average Cost of Capital
-                    weighted / discount rate
+                    weighted / discount rate, can use in dcf
                     
                 4. --- Earnings Multiplier
                     price to earnings multiple, stock price and earnings per share. stock price / eps
