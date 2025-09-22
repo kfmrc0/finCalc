@@ -1,6 +1,6 @@
 public class WeightedAverageCostOfCapital {
 
-    public static String formatWACC (String ticker, double stockPrice, double marketCap, double interestExpense, double totalDebt, double incomeTaxExpense,
+    public static String formatWACC (String ticker, double marketCap, double interestExpense, double totalDebt, double incomeTaxExpense,
                                      double incomeBeforeTax, double beta, double marketReturn, double riskFreeRate) {
 
         double costOfDebt = interestExpense / totalDebt;

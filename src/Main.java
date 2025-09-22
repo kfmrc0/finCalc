@@ -30,7 +30,6 @@ public class Main {
                     while (stayIn) {
                         System.out.println("\n\n--- Weighted Average Cost of Capital Model ---");
                         String ticker = InputHelper.getTickerSymbol("Enter the ticker symbol: ");
-                        double stockPrice = InputHelper.getDouble("Enter the current stock price: ");
                         double marketCap = InputHelper.getDouble("Enter the market cap of " + ticker + ": ");
                         System.out.println("----------------------------------------------");
 
@@ -51,7 +50,7 @@ public class Main {
                         // cost of equity = (risk free rate) + (beta) * (market return - risk free rate)
                         System.out.println("----------------------");
 
-                        output = WeightedAverageCostOfCapital.formatWACC(ticker, stockPrice, marketCap, interestExpense, totalDebt, incomeTaxExpense,
+                        output = WeightedAverageCostOfCapital.formatWACC(ticker, marketCap, interestExpense, totalDebt, incomeTaxExpense,
                                 incomeBeforeTax, beta, marketReturn, riskFreeRate);
 
                         System.out.println(output);
