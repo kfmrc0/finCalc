@@ -1,7 +1,7 @@
 public class WeightedAverageCostOfCapital {
 
     public static String formatWACC (String ticker, double marketCap, double interestExpense, double totalDebt, double incomeTaxExpense,
-                                     double incomeBeforeTax, double beta, double marketReturn, double riskFreeRate) {
+                                     double incomeBeforeTax, double beta, double marketReturn, double riskFreeRate) { // here
 
         double costOfDebt = interestExpense / totalDebt;
         double effectiveTaxRate = incomeTaxExpense / incomeBeforeTax;
