@@ -5,7 +5,7 @@ public class WeightedAverageCostOfCapital {
 
         double costOfDebt = interestExpense / totalDebt;
         double effectiveTaxRate = incomeTaxExpense / incomeBeforeTax;
-        double costOfDebtAfterTax = costOfDebt * (1 - effectiveTaxRate); // calculated valuables that result in percentage need to be fixed
+        double costOfDebtAfterTax = costOfDebt * (1 - effectiveTaxRate); // calculated valuables that result in percentage need to be fixed wacc
 
         double costOfEquity = riskFreeRate + beta * (marketReturn - riskFreeRate);
 
