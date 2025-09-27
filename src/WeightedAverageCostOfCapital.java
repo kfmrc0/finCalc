@@ -20,6 +20,6 @@ public class WeightedAverageCostOfCapital {
                 Ticker: %s
                 WACC: %.2f%%
                 -----------------------------
-                """, ticker, WACC * 100);
+                """, ticker, WACC * 100); // show calculated variables too
     }
 }
