@@ -45,8 +45,8 @@ public class Main {
 
                         System.out.println("\n--- Cost of Equity ---");
                         double beta = InputHelper.getDouble("Enter the beta of " + ticker + ": ");
-                        double marketReturn = InputHelper.getDouble("Enter the expected return on the market (7% - 10%): ");
-                        double riskFreeRate = InputHelper.getDouble("Enter the U.S. Treasury Yield on 10 Years (Risk Free Rate): ");
+                        double marketReturn = InputHelper.getDouble("Enter the expected return on the market (7% - 10%): ") / 100;
+                        double riskFreeRate = InputHelper.getDouble("Enter the U.S. Treasury Yield on 10 Years (Risk Free Rate): ") / 100;
                         // cost of equity = (risk free rate) + (beta) * (market return - risk free rate)
                         System.out.println("----------------------");
 

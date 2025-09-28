@@ -5,14 +5,14 @@ public class WeightedAverageCostOfCapital {
 
         double costOfDebt = interestExpense / totalDebt;
         double effectiveTaxRate = incomeTaxExpense / incomeBeforeTax;
-        double costOfDebtAfterTax = costOfDebt * (1 - effectiveTaxRate); // calculated valuables that result in percentage need to be fixed wacc not used
+        double costOfDebtAfterTax = costOfDebt * (1 - effectiveTaxRate);
 
         double costOfEquity = riskFreeRate + beta * (marketReturn - riskFreeRate);
 
         double DEtotal = totalDebt + marketCap;
         double DEtotalDebt = totalDebt / DEtotal;
         double DEmarketCap = marketCap / DEtotal;
-        double WACC = (costOfDebt * DEtotalDebt) + (costOfEquity * DEmarketCap);
+        double WACC = (costOfDebtAfterTax * DEtotalDebt) + (costOfEquity * DEmarketCap);
 
 
         return String.format("""
