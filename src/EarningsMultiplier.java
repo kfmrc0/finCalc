@@ -1,6 +1,11 @@
 public class EarningsMultiplier {
 
-    public static String formatPERatio (String ticker, double stockPrice, double eps) {
+    public static String formatPERatio
+            (String ticker,
+             double stockPrice,
+             double eps) {
+
+        // just a simple calculation for pe ratio
         double peRatio = stockPrice / eps;
 
         return String.format("""
@@ -13,7 +18,13 @@ public class EarningsMultiplier {
                 """, ticker, stockPrice, eps, peRatio);
     }
 
-    public static String formatIntrinsicValue (String ticker, double stockPrice, double eps, double peRatio) {
+    public static String formatIntrinsicValue
+            (String ticker,
+             double stockPrice,
+             double eps,
+             double peRatio) {
+
+        // core calculations
         double intrinsicValue = eps * peRatio;
         double percentChange = ((intrinsicValue - stockPrice) / stockPrice) * 100;
 
