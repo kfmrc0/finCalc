@@ -29,13 +29,25 @@ public class WeightedAverageCostOfCapital {
                 \n--- WACC Calculation ---
                 Ticker: %s
                 
-                Cost of Debt: %.4s (%.2f%%)
-                WACC: %.2f%%
+                Cost of Debt:           %.2f
+                Effective Tax Rate:     %.2f
+                After-Tax Cost of Debt: %.2f
+                Cost of Equity:         %.2f
+                
+                Debt Weight:            %.2f
+                Equity Weight:          %.2f
+                
+                WACC:                   %.2f%%
                 -----------------------------
                 """,
                 ticker,
-                costOfDebt, costOfDebt * 100,
+                costOfDebt,
+                effectiveTaxRate,
+                costOfDebtAfterTax,
+                costOfEquity,
+                DEtotalDebt,
+                DEmarketCap,
                 WACC * 100
-        ); // show calculated variables too
+        ); // show calculated variables too later
     }
 }
