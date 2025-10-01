@@ -28,6 +28,9 @@ public class EarningsMultiplier {
         double intrinsicValue = eps * peRatio;
         double percentChange = ((intrinsicValue - stockPrice) / stockPrice) * 100;
 
+
+
+        // change here
         return String.format("""
                 \n--- Intrinsic Value Calculation ---
                 Ticker: %s
