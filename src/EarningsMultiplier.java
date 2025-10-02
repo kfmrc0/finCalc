@@ -30,7 +30,7 @@ public class EarningsMultiplier {
 
 
 
-        // change here
+        // change here (percentages and calculated data)
         return String.format("""
                 \n--- Intrinsic Value Calculation ---
                 Ticker: %s
