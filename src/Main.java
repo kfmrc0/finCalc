@@ -113,7 +113,7 @@ public class Main {
                         }
                     }
                 }
-                case 4 -> {
+                case 4 -> { // TODO
                     DividendDiscountModel.test();
                     isRunning = false;
                 }

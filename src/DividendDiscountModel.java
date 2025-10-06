@@ -1,7 +1,11 @@
 public class DividendDiscountModel {
 
-    public static void test() {
-        System.out.println("4. testDDM received");
-    }
+    public static String formatDDM // TODO
+            (String ex1,
+             double ex2,
+             double ex3) {
+
+                return ex1;
+            }
 
 }
