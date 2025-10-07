@@ -113,9 +113,16 @@ public class Main {
                         }
                     }
                 }
-                case 4 -> { // TODO
-                    DividendDiscountModel.test();
-                    isRunning = false;
+                case 4 -> {
+                    boolean stayIn = true;
+                    String output = "";
+
+                    while (stayIn) {
+                        System.out.println("\n\n--- Dividend Discount Model ---");
+                        String ticker = InputHelper.getTickerSymbol("Enter the ticker symbol: ");
+                        // continue
+
+                    }
                 }
                 case 5 -> {
                     Information.test();

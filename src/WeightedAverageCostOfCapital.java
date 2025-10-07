@@ -12,7 +12,7 @@ public class WeightedAverageCostOfCapital {
              double riskFreeRate) {
 
         // core calculations
-        double costOfDebt = interestExpense / totalDebt; // testing this variable
+        double costOfDebt = interestExpense / totalDebt;
         double effectiveTaxRate = incomeTaxExpense / incomeBeforeTax;
         double costOfDebtAfterTax = costOfDebt * (1 - effectiveTaxRate);
 
@@ -48,6 +48,6 @@ public class WeightedAverageCostOfCapital {
                 DEtotalDebt * 100,
                 DEmarketCap * 100,
                 WACC * 100
-        ); // show calculated variables too later
+        );
     }
 }
