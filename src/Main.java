@@ -120,8 +120,45 @@ public class Main {
                     while (stayIn) {
                         System.out.println("\n\n--- Dividend Discount Model ---");
                         String ticker = InputHelper.getTickerSymbol("Enter the ticker symbol: ");
-                        // continue
 
+                        int years;
+                        while (true) {
+                            years = InputHelper.getInt("Enter the number of years of quarterly dividends (1-10, inclusive): ");
+                            if (years <= 0) {
+                                System.out.println("Number of years must be greater than 0.");
+                            }
+                            else if (years > 10) {
+                                System.out.println("Number of years cannot exceed 10.");
+                            }
+                            else {
+                                break;
+                            }
+                        }
+
+                        double[] quarterlyDividends = new double[years];
+                        int currentYear = java.time.Year.now().getValue();
+
+                        for (int i = 0; i < years; i++) {
+                            int year = currentYear - (years - 1 - i);
+                            quarterlyDividends[i] = InputHelper.getDouble("Enter the quarterly dividend for " + year + ": ");
+                        }
+
+                        double requiredReturn = InputHelper.getDouble("Enter the required rate of return (in %): ") / 100;
+                        double stockPrice = InputHelper.getDouble("Enter the current stock price: ");
+
+                        output = DividendDiscountModel.formatDDM(ticker, quarterlyDividends, requiredReturn, stockPrice);
+
+                        System.out.println(output);
+
+                        while (true) {
+                            System.out.print("Return to main menu? (enter 'yes' to return): ");
+                            String response = scanner.nextLine().trim().toLowerCase();
+                            if (response.equals("yes")) {
+                                stayIn = false;
+                                break;
+                            }
+                            System.out.println(output);
+                        }
                     }
                 }
                 case 5 -> {
