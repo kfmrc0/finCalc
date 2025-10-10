@@ -162,8 +162,18 @@ public class Main {
                     }
                 }
                 case 5 -> {
-                    Information.test();
-                    isRunning = false;
+                    Information.output();
+                    boolean stayIn = true;
+                    while (stayIn) {
+                        System.out.print("Return to main menu? (enter 'yes' to return): ");
+                        String response = scanner.nextLine().trim().toLowerCase();
+                        if (response.equals("yes")) {
+                            break;
+                        }
+                        else {
+                            Information.output();
+                        }
+                    }
                 }
                 case 6 -> {
                     System.out.println("Now exiting the Java program...");

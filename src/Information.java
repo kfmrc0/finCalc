@@ -1,6 +1,6 @@
 public class Information {
 
-    public static void test() {
+    public static void output() {
         System.out.println("""
                 \n1. --- Notes
                     This project was made by kfmrc0 for fun and for personal use. eventually want
