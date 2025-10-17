@@ -21,6 +21,11 @@ public class DiscountedCashFlow {
     double conservativeGrowth = 0.0;
     // conservative growth rate
 
+    public static String formatDCF() {
+
+    }
+
+
 
 
 
